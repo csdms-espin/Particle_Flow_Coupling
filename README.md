@@ -1,15 +1,39 @@
-# Particle_Flow_Coupling
+# Data Component Use Case for Overland Flow Simulation
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/gantian127/overlandflow_usecase/blob/master/LICENSE.txt)
 
-#### This project integrates the Overland Flow simulation model with the Dorado Particle Tracking Flow model. These two models, traditionally independent, have been coupled to enhance efficiency and usability in our use case. By combining the strengths of Overland Flow's hydrodynamic simulations and Dorado's particle tracking capabilities, we provide a comprehensive tool for more accurate and streamlined environmental modeling.
+This repository includes a [Jupyter Notebook](overland_flow.ipynb) which demonstrates how to use 
+the [CSDMS Data Component](https://csdms.colorado.edu/wiki/DataComponents) to download the topography dataset 
+and use the [Landlab](https://landlab.readthedocs.io/en/master/) components 
+to delineate the watershed and simulate the overland flow for a study area in the Boulder County.
+
+This Jupyter Notebook is part of the work for a research paper
+["CSDMS Data Components: data-model integration tools for Earth surface processes modeling"](https://doi.org/10.5194/gmd-2023-127).
+
+### Notebook Citation
+Gan, T., Tucker, G. E., Overeem, I. (2023). Data Component Use Case for Overland Flow Simulation, HydroShare, 
+https://doi.org/10.4211/hs.bcbcfe823cc4432f8ce96c3048d4591f
 
 
-<img src="Images/Overland.JPG" alt="Description of Image" width="500"/>
-Figure 1: Map of water depths at time = 2 hr, for the sample storm on the square basin (5 mm/hr over duration of 2 hr). (Source: https://landlab.readthedocs.io/en/latest/user_guide/overland_flow_user_guide.html)
+### Run the Notebook
+You can choose the following methods to run this Jupyter Notebook: 
 
-The Landlab OverlandFlow component implements a 2-D solution of the shallow water equations, following the algorithm of de Almeida et al., (2012). 
+#### Method 1: HydroShare
+Please go to the [HydroShare Resource](https://www.hydroshare.org/resource/bcbcfe823cc4432f8ce96c3048d4591f/) 
+and follow the instruction in the **"Abstract"** section to run this notebook.
+
+#### Method 2: CSDMS
+Please go to the [CSDMS EKT Lab](https://csdms.colorado.edu/wiki/Lab-0030) 
+and follow the instruction in the **"Lab notes"** section to run this notebook.
 
 
-<img src="Images/doradp.gif" alt="Description of Image" width="500"/>
-Figure 2: Visualization of result after running dorado model. (Source: https://passah2o.github.io/dorado/)
-
-Dorado is a python package developed to simulate the transport of passive particles in a flow field. Particle movement is simulated in a Lagrangian fashion using a weighted random walk formulation.
+#### Method 3: Local PC
+Please first download all the files from this repository and have 
+[conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) installed on the local PC.
+Then, use the following commands to create a virtual environment and launch the Jupyter Notebook. 
+The code below works best on Mac OS or Linux and may cause some errors on Windows.
+```
+$ cd overlandflow_usecase
+$ conda env create --file=environment.yml
+$ conda activate overlandflow_usecase
+$ jupyter notebook
+```
